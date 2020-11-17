@@ -1,0 +1,14 @@
+version_info: "0"
+resources:
+- '@type': type.googleapis.com/envoy.api.v2.RouteConfiguration
+  name: local_route
+  virtual_hosts:
+  - name: "mywebsite"
+    domains:
+    - "192.168.1.60:*"
+    routes:
+    - match:
+        prefix: /
+      route:
+        cluster: "mywebsite"
+        timeout: 60s

@@ -1,0 +1,11 @@
+version_info: "0"
+resources:
+- '@type': type.googleapis.com/envoy.config.cluster.v3.Cluster
+  name: "mywebsite"
+  connect_timeout:
+    seconds: 5
+  lb_policy: ROUND_ROBIN
+  type: EDS
+  eds_cluster_config:
+    eds_config:
+      path: /etc/envoy/cds/eds.yaml
